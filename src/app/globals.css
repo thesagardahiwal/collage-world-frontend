@@ -2,32 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.angular-bg {
+    background: conic-gradient(from 0.25turn at 30% 50%, #febf7b, 70deg, #ffa84c, 360deg, #fa8b15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.loginButton {
+    font-weight: bold;
+    font-size: large;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: lightsalmon;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+input, select {
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin: 10px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.linkButton {
+    color: blue;
+    text-decoration: underline;
+    font-weight: 400;
+    cursor: pointer;
 }

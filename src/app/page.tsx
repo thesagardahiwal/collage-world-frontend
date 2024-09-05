@@ -1,9 +1,9 @@
-import Link from "next/link";
+import AuthForm from "@/components/auth/AuthForm";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Link href={"/about"}>Go About</Link>
+    <main className="h-full bg-white p-4 rounded-md w-full">
+      <AuthForm/>
     </main>
   );
 }
