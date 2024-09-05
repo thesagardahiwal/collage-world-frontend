@@ -29,3 +29,27 @@ input, select {
     font-weight: 400;
     cursor: pointer;
 }
+
+.iconFix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer {
+    border-radius: 10px;
+    height: 40px;
+    width: 40px;
+    background-color: whitesmoke;
+    transition: all .8s;
+}
+
+.iconContainer:hover {
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+
+span {
+    cursor: pointer;
+}
