@@ -15,8 +15,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </header>
       <body className='bg-[#f9dfd5]'>
         <Provider store={store}>
-          <main className='flex w-[100vw] gap-2 p-4 h-[100vh]'>
-            <div className='w-[10vw] lg:w-[6vw] h-full'>
+          <main className='flex w-[100vw] gap-2 sm:p-4 h-[100vh]'>
+            <div className='w-[10vw] hidden sm:block lg:w-[6vw] h-full'>
               <Navbar />
             </div>
             <div className='flex-1 p-2 min-h-full bg-white rounded-md overflow-y-auto w-full'>
