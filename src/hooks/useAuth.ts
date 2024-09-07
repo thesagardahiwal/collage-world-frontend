@@ -1,3 +1,5 @@
+'use client'
+
 import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess, logout } from '../redux/slices/authSlice';
 import { RootState } from '../redux/store';
@@ -7,10 +9,14 @@ export const useAuth = () => {
   const { user, isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   const login = (userData: any) => {
-    dispatch(loginSuccess(userData));
+    dispatch(loginSuccess(userData.user));
+    localStorage.setItem('accessToken', userData.token);
+    localStorage.setItem('user', userData.user);
   };
 
   const logoutUser = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('user');
     dispatch(logout());
   };
 

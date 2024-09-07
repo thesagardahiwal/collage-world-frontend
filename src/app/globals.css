@@ -8,19 +8,28 @@
 }
 
 .loginButton {
-    font-weight: bold;
+    font-weight: 400;
     font-size: large;
     padding: 5px 10px;
     border-radius: 10px;
     background-color: lightsalmon;
+    transition: all .5s;
+}
+
+.authInpWidth {
+    max-width: 300px;
+    min-width: 200px;
+    width: 100%;
 }
 
 input, select {
-    padding: 5px;
+    padding: 10px;
     width: 100%;
     border-radius: 10px;
     display: block;
     margin: 10px;
+    color: #000 !important;
+    transition: all .5s;
 }
 
 .linkButton {
@@ -28,6 +37,28 @@ input, select {
     text-decoration: underline;
     font-weight: 400;
     cursor: pointer;
+    transition: all 0.5s;
+}
+
+.cancelBtn {
+    transition: all .5s;
+}
+
+.cancelBtn:hover {
+    border: #fff solid 2px;
+    padding: 5px;
+}
+
+.align-inpts {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.linkButton:hover {
+    font-weight: bolder;
 }
 
 .iconFix {
@@ -44,12 +75,128 @@ input, select {
     transition: all .8s;
 }
 
-.iconContainer:hover {
-    border-radius: 15px;
-    background-color: black;
-    color: white;
-}
-
 span {
     cursor: pointer;
+    transition: all 0.1s;
 }
+
+span:hover {
+    scale: 1.2;
+}
+
+.loginButton:hover {
+    background-color: #000;
+    color: white;
+    font-weight: bold;
+
+}
+
+input:hover, select:hover {
+    padding: 15px;
+
+}
+
+.collage-header {
+    transition: all 0.5s;
+}
+
+.collage-header:hover {
+    scale: 1.2;
+    text-shadow: #000;
+    rotate: -5deg;
+    font-size: x-large;
+    font:bold
+}
+
+.text {
+    transition: all 0.5s;
+}
+
+
+
+.text:hover {
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.textView {
+    display: none;
+    transition: all 0.5s;
+}
+
+.contentSession {
+    transition: all 1s;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.iconContainer2 {
+    transition: all 2s;
+}
+
+.move {
+    position: relative;
+    transition: all 0.5s;
+}
+
+@media screen and (min-width: 650px) {
+    .iconContainer2 {
+        border-radius: 10px;
+        height: 40px;
+        width: 40px;
+        background-color: black;
+        color: white;
+    }
+
+    .move:hover {
+        transform: translateX(10px);
+        margin: 10px 0;
+    }
+
+    .iconContainer:hover {
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+    }
+
+    .iconContainer:hover .textView {
+        display: block;
+        position: absolute;
+        font-size: small;
+        bottom: 45px;
+        background: #fff;
+        color: #000;
+        padding: 2px;
+    };
+}
+
+@media screen and (max-width: 640px) {
+    .iconContainer2 {
+        border-radius: 15px;
+        color: white;
+        position: relative;
+        margin: 0;
+    }
+
+    .iconContainer2{
+        border-radius: 10px;
+        height: 40px;
+        width: fit-content;
+        padding: 0 10px;
+        background-color: transparent;
+        transition: all .5s;
+    }
+
+    .iconContainer2 .textView {
+        display: block;
+        padding: 5px;
+    }
+
+    .iconContainer {
+        background-color: rgba(255, 255, 255, 0.138);
+        color: white;
+    }
+
+  }
