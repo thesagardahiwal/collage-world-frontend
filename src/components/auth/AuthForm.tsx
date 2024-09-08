@@ -46,6 +46,7 @@ const AuthForm = () => {
                 const userData = isLogin ? await login(email, password) : await register(email, password, role, name);
                 console.log(userData)
                 loginUser(userData);
+                setSuccessMessage(checkInputs(object).message);
                 router.push('/dashboard');
             } else {
                 setWarningMessage(checkInputs(object).message);

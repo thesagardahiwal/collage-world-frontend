@@ -15,7 +15,7 @@ interface outputs {
 export const checkInputs = ({name, role, email, password, method} : inputs) : outputs => {
     
     if (!email.includes('@gmail.com')) return {message: "Enter valid email !", status: 'failure'};
-    if (!(password.length > 3)) return {message: "Enter String Password of minimun 9 characters", status: 'failure'};
+    if (!(password.length > 5)) return {message: "Enter String Password of minimun 9 characters", status: 'failure'};
 
     if (method == 'register') {
         if (name?.length) {
