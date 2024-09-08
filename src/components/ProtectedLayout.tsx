@@ -8,7 +8,7 @@ const ProtectedLayout = ({ children } : any) => {
   // Assume you have a function to check if the user is logged in
   const isAuthenticated = () => {
     // Example: check a token or a user object in localStorage/cookies
-    return localStorage.getItem('accessToken'); 
+    return typeof window == 'undefined' ? localStorage.getItem('accessToken') : false; 
   };
 
   useEffect(() => {
