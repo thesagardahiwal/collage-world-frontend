@@ -1,3 +1,5 @@
+'use client'
+
 import ProtectedLayout from '@/components/ProtectedLayout'
 import React from 'react'
 
