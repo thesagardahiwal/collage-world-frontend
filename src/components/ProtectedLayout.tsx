@@ -1,24 +1,31 @@
 'use client'
 
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const ProtectedLayout = ({ children } : any) => {
+const ProtectedLayout = ({ children }: any) => {
   const router = useRouter();
-  // Assume you have a function to check if the user is logged in
-  const isAuthenticated = () => {
-    // Example: check a token or a user object in localStorage/cookies
-    return typeof window == 'undefined' ? localStorage.getItem('accessToken') : false; 
-  };
+  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    if (!isAuthenticated()) {
+    // Ensure localStorage is only accessed on the client side
+    const checkAuth = () => {
+      if (typeof window !== 'undefined') {
+        const accessToken = localStorage.getItem('accessToken');
+        return !!accessToken; // Return true if token exists, false otherwise
+      }
+      return false;
+    };
+
+    if (!checkAuth()) {
       router.push('/'); // Redirect to login if not authenticated
+    } else {
+      setIsAuth(true); // Set authenticated state
     }
   }, [router]);
 
-  if (!isAuthenticated()) {
-    return null; // You can return a loader or null while checking auth
+  if (!isAuth) {
+    return null; // Render nothing or a loader while checking auth
   }
 
   return <>{children}</>;
