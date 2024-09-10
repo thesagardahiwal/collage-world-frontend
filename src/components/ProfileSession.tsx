@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import TopBar from './profile/TopBar'
 import ProfileCard from './profile/ProfileCard'
@@ -5,6 +6,8 @@ import Follwers from './profile/Follwers'
 import Shortcuts from './profile/Shortcuts'
 import { useAuth } from '@/hooks/useAuth'
 import Link from 'next/link'
+
+import LockRoundedIcon from '@mui/icons-material/LockRounded';
 
 function ProfileSession() {
   const { isAuthenticated, logoutUser } = useAuth();
@@ -15,7 +18,7 @@ function ProfileSession() {
         <Link href="/games" className='iconFix flex-col bg-white/40 h-full w-full'>
           <div className='iconContainer iconFix' onClick={() => logoutUser}>
             <span className="material-symbols-rounded">
-              lock
+              <LockRoundedIcon/>
             </span>
           </div>
           <div className='text-gray-800 font-bold mt-3'>

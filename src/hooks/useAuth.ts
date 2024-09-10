@@ -11,7 +11,7 @@ export const useAuth = () => {
   const login = (userData: any) => {
     dispatch(loginSuccess(userData.user));
     localStorage.setItem('accessToken', userData.token);
-    localStorage.setItem('user', userData.user);
+    localStorage.setItem('user', JSON.stringify(userData.user));
   };
 
   const logoutUser = () => {

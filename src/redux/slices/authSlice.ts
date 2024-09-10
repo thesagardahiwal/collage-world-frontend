@@ -6,8 +6,8 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  user: typeof window !== 'undefined' ? JSON.stringify(localStorage.getItem('user')) || null : null,
-  isAuthenticated: typeof window !== 'undefined' && localStorage.getItem('accessToken') ? true : false,
+  user: null,
+  isAuthenticated: false,
 };
 
 const authSlice = createSlice({

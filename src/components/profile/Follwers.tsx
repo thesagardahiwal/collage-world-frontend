@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 
 import Groups3RoundedIcon from '@mui/icons-material/Groups3Rounded';

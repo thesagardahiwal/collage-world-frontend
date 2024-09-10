@@ -1,11 +1,12 @@
+'use client'
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice';
-import alertReducer from "./slices/alertSlice";
+import noteReducer from './slices/noteSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    alert: alertReducer
+    note: noteReducer
   },
 });
 

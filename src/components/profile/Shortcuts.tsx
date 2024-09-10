@@ -1,3 +1,5 @@
+
+"use client"
 import React from 'react'
 
 import VideoCameraFrontRoundedIcon from '@mui/icons-material/VideoCameraFrontRounded';

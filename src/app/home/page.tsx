@@ -5,7 +5,6 @@ import HorizontalSlider from '@/components/ui/HorizontalSlider'
 import React from 'react'
 
 function HomePage() {
-
   return (
     <div className='p-2 scroll-smooth'>
         <div className="heroSession">
