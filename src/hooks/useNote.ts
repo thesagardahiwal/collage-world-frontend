@@ -7,6 +7,7 @@ function useNote() {
   const dispatch = useDispatch();
   const { notes, recentNote } = useSelector((state: RootState) => state.note);
   const add = (note : INote) => {
+    del(note);
     dispatch(addNote(note));
   }
 
@@ -15,6 +16,7 @@ function useNote() {
   }
 
   const update = (note: INote) => {
+    del(note);
     dispatch(updateNote(note));
   }
 
@@ -22,7 +24,12 @@ function useNote() {
     dispatch(undoNote());
   }
 
-  return {undo, del, update, add, notes, recentNote};
+  const getNote = (id: string) => {
+    const deletedNote = notes.find((el) => el._id === id);
+    return deletedNote
+}
+
+  return {undo, del, getNote, update, add, notes, recentNote};
 
 
 }

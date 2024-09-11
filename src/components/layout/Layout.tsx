@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/resizable"
 import { Suspense } from 'react';
 import { Toaster } from '@/components/ui/toaster';
+import FloatingBar from '@/app/notes/components/floating-bar';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
@@ -27,20 +28,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ResizablePanelGroup direction='horizontal'>
               {/* Main Content Area */}
               <ResizablePanel
-              className='w-full min-h-full !overflow-y-auto'
+              className='w-full relative h-[100vh]'
               >
-                <div className='min-h-full w-full'>
+                <div className='min-h-full h-full !overflow-y-auto w-full'>
                   {children}
                   <Suspense fallback={<div>Loading Footer...</div>}>
                     <Footer />
                   </Suspense>
                 </div>
+                <div className='absolute h-fit w-fit bottom-14 right-0 z-50'>
+                  <FloatingBar/>
+                </div>
               </ResizablePanel>
 
-              <ResizableHandle withHandle className='hidden sm:flex' />
+              <ResizableHandle withHandle className='hidden md:flex' />
 
               <ResizablePanel 
-                className='w-1/3 sm:block hidden h-full'
+                minSize={25}
+                maxSize={35}
+                className='w-1/3 md:block hidden h-full'
               >
                 {/* Profile Section */}
                 <div className="md:block h-full w-full hidden">
@@ -50,9 +56,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </ResizablePanel>
             </ResizablePanelGroup>
-            <div className='absolute'>
+            <div className='absolute z-50'>
               <Toaster />
             </div>
+          
           </main>
         </Provider>
   );

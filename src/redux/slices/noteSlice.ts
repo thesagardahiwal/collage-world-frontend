@@ -1,4 +1,9 @@
+
+import axiosInstance from "@/services/axiosInstance";
+import { get } from "@/services/useQuery";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+
 
 export interface INote extends Document {
     _id: string;
@@ -27,6 +32,7 @@ const noteSlice = createSlice({
     initialState,
     reducers: {
         addNote(state, action : PayloadAction<any>) {
+            state.notes = state.notes.filter((el) => el._id !== action.payload._id);
             state.notes.push(action.payload);
             state.recentNote.push(action.payload);
         },
@@ -49,7 +55,9 @@ const noteSlice = createSlice({
             if (state.deletedNote) {
                 state.notes.push(state.deletedNote);
             }
-        }
+        },
+
+       
     }
 });
 

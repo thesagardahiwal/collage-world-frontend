@@ -1,37 +1,55 @@
 'use client'
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import useNote from '@/hooks/useNote';
+import { useEffect, useTransition } from 'react';
+import { INote } from "../../../redux/slices/noteSlice"
+import { get } from '@/services/useQuery';
+import { useAuth } from '@/hooks/useAuth';
+import { Image } from '@nextui-org/image';
 
-interface notetype {
-    _id?: string;
-    imageUrl?: string;
-    noteText?: string;
-}
+
+import Note from './note';
 
 const NotesList = () => {
-  const [notes, setNotes] = useState<notetype[]>([]);
+  const { notes, add, getNote, del } = useNote();
+  const { token } = useAuth();
+  const [isPending, startTransition] = useTransition();
+
+  const fetchNotes = () => {
+    startTransition(() => {
+      if (typeof token === 'string') {
+        get('/notes', token).then((data) => {
+          for (let n of data) {
+            add(n);
+          }
+        })
+
+        console.log(notes)
+
+      }
+    })
+  }
 
   useEffect(() => {
-    const fetchNotes = async () => {
-      try {
-        const response = await axios.get('/api/notes');
-        setNotes(response.data);
-      } catch (error) {
-        console.error('Error fetching notes:', error);
-      }
-    };
-    fetchNotes();
+    if (notes.length === 0) {
+      fetchNotes();
+    }
   }, []);
 
   return (
-    <div>
-      {notes.map((note) => (
-        <div key={note._id}>
-          <img src={note.imageUrl} alt="Note Image" />
-          <p>{note.noteText}</p>
-        </div>
-      ))}
+    <div className='w-full h-full'>
+      <div className='text-md text-left font-medium tracking-wide'>Recent Notes</div>
+      <div 
+      className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'
+      >
+        {notes.length > 0 && notes.map((note: INote, i: number) => (
+          <div
+            key={i}>
+            <Note note={note} />
+          </div>
+        ))}
+      </div>
+      {notes.length === 0 && <h2>Write note...</h2>}
     </div>
   );
 };

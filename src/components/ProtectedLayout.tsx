@@ -20,6 +20,9 @@ const ProtectedLayout = ({ children }: any) => {
 
   useEffect(() => {
     // Ensure localStorage is only accessed on the client side
+    if (isAuthenticated) {
+      return;
+    }
     const checkAuth = () => {
       if (typeof window !== 'undefined') {
         const accessToken = localStorage.getItem('accessToken');
@@ -36,7 +39,6 @@ const ProtectedLayout = ({ children }: any) => {
         })
       router.push('/'); // Redirect to login if not authenticated
     } else {
-      console.log(getJSONDetails(localStorage.getItem('user')))
       login({user : getJSONDetails(localStorage.getItem('user')), token: localStorage.getItem("accessToken")})
       // setIsAuth(true); // Set authenticated state
     }

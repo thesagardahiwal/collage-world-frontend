@@ -6,10 +6,11 @@ import { RootState } from '../redux/store';
 
 export const useAuth = () => {
   const dispatch = useDispatch();
-  const { user, isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const { user, isAuthenticated, token } = useSelector((state: RootState) => state.auth);
 
   const login = (userData: any) => {
-    dispatch(loginSuccess(userData.user));
+    console.log(userData)
+    dispatch(loginSuccess(userData));
     localStorage.setItem('accessToken', userData.token);
     localStorage.setItem('user', JSON.stringify(userData.user));
   };
@@ -20,5 +21,5 @@ export const useAuth = () => {
     dispatch(logout());
   };
 
-  return { user, isAuthenticated, login, logoutUser };
+  return { user, token, isAuthenticated, login, logoutUser };
 };

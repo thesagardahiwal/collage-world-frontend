@@ -4,9 +4,10 @@ import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import { Button } from '../ui/button';
 
+
 const AuthForm = () => {
     const [isLogin, setLogin] = useState(true);
-
+    
     return (
         <div className='w-full h-[100vh] flex justify-center rounded-md items-center bg-blue-400'>
             <div className='bg-white h-fit animation p-4 rounded-md'>
