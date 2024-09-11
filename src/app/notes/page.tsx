@@ -12,7 +12,9 @@ function notes() {
       <div className='w-full h-full p-4'>
         <NotesList />
       </div>
-      <div></div>
+      <div>
+        
+      </div>
     </div>
   )
 }
