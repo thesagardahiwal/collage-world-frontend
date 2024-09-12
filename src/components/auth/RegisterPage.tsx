@@ -44,7 +44,7 @@ function RegisterPage() {
                     title: "Authenticated!",
                     description: "Successfully Registered."
                 });
-                router.push('/home');
+                router.push('/');
 
             }).catch(() => {
                 toast({

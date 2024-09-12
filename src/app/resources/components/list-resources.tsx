@@ -18,7 +18,10 @@ function ResourcesList() {
         }
         get('/resource/get', token)
             .then((data) => {
-                addRes(data);
+                console.log(data);
+                for(let i of data) {
+                    addRes(i);
+                }
             })
             .catch(() => {
                 toast({

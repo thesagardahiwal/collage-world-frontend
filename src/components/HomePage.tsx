@@ -1,5 +1,3 @@
-'use client'
-
 import ContentCard from '@/components/ui/ContentCard'
 import HorizontalSlider from '@/components/ui/HorizontalSlider'
 import React from 'react'

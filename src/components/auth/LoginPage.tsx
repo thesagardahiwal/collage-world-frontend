@@ -47,7 +47,7 @@ function LoginPage() {
                     title: "Authenticated!",
                     description: "Successfully Logged in."
                 });
-                router.push('/home');
+                router.push('/');
 
             }).catch(() => {
                 toast({

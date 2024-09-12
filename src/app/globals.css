@@ -10,6 +10,14 @@
     background: conic-gradient(from 0.25turn at 30% 50%, #febf7b, 70deg, #ffa84c, 360deg, #fa8b15);
 }
 
+.MuiAppBar-colorPrimary, .MuiPaper-root, .MuiList-root {
+    background-color: #00011c !important;
+    color: #fff !important;
+}
+.MuiList-root:hover {
+    background-color: #f5f5f5;
+}
+
 .loginButton {
     font-weight: 400;
     font-size: large;

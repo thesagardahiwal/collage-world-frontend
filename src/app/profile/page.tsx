@@ -1,11 +1,7 @@
-'use client'
-
 import ProtectedLayout from '@/components/ProtectedLayout'
-import { useAuth } from '@/hooks/useAuth'
 import React from 'react'
 
 function page() {
-  const {user} = useAuth()
   // console.log(user);
   return (
     <ProtectedLayout>

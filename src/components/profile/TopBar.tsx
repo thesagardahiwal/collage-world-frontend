@@ -7,12 +7,12 @@ import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 function TopBar() {
   return (
     <div className='h-10 w-full justify-between flex items-center'>
-        <div className='h-10 bg-white/10 hover:bg-white/30 duration-300 cursor-pointer iconFix rounded-md w-10'>
+        <span className='h-10 bg-white/10 hover:bg-white/30 duration-300 cursor-pointer iconFix rounded-md w-10'>
           <SettingsIcon/>
-        </div>
-        <div className='h-10 bg-white/10 hover:bg-white/30 duration-300 cursor-pointer iconFix rounded-md w-10'>
+        </span>
+        <span className='h-10 bg-white/10 hover:bg-white/30 duration-300 cursor-pointer iconFix rounded-md w-10'>
           <NotificationsIcon/>
-        </div>
+        </span>
     </div>
   )
 }

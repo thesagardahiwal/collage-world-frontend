@@ -1,5 +1,6 @@
 import React from 'react'
 import ResourcesList from './components/list-resources'
+import { Suspense } from 'react'
 
 function page() {
   return (
@@ -11,7 +12,9 @@ function page() {
         </div>
 
         <div className='h-full w-full'>
-            <ResourcesList/>
+          <Suspense fallback={<h1>Loading...</h1>}>
+              <ResourcesList/>
+          </Suspense>
         </div>
     </div>
   )

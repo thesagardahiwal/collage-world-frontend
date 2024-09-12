@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import TopBar from './profile/TopBar'
 import ProfileCard from './profile/ProfileCard'
@@ -15,7 +14,7 @@ function ProfileSession() {
   if (!isAuthenticated) {
     return (
       <div className='angular-bg rounded-md p-4 h-full w-full'>
-        <Link href="/games" className='iconFix flex-col bg-white/40 h-full w-full'>
+        <Link href="/" className='iconFix flex-col bg-white/40 h-full w-full'>
           <div className='iconContainer iconFix' onClick={() => logoutUser}>
             <span className="material-symbols-rounded">
               <LockRoundedIcon/>

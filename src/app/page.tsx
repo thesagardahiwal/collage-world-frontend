@@ -1,11 +1,10 @@
-'use client'
-
-import AuthForm from "@/components/auth/AuthForm";
+import HomePage from "@/components/HomePage";
+import ProtectedLayout from "@/components/ProtectedLayout";
 
 export default function Home() {
   return (
-    <main className="h-full mb-2 w-full">
-      <AuthForm/>
-    </main>
+    <ProtectedLayout className="h-full mb-2 w-full">
+      <HomePage/>
+    </ProtectedLayout>
   );
 }

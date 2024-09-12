@@ -37,7 +37,7 @@ const ProtectedLayout = ({ children }: any) => {
           description: "Login first to use these features!",
           variant: "destructive"
         })
-      router.push('/'); // Redirect to login if not authenticated
+      router.push('/login'); // Redirect to login if not authenticated
     } else {
       login({user : getJSONDetails(localStorage.getItem('user')), token: localStorage.getItem("accessToken")})
       // setIsAuth(true); // Set authenticated state
