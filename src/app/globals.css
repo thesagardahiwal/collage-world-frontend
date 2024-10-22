@@ -163,7 +163,17 @@ span:hover {
         background-color: #00011c;
         color: white;
         position: relative;
-        transform: translate(5px, -5px);
+        transform: translate(2px, -2px);
+    }
+
+    .MuiAppBar-colorPrimary, .MuiPaper-root, .MuiList-root {
+        background-color: #fff !important;
+        color: #000 !important;
+     
+    }
+
+    .MuiAppBar-colorPrimary {
+        box-shadow: none !important;
     }
 
     .iconContainer2 {
@@ -175,8 +185,8 @@ span:hover {
     }
 
     .move:hover {
-        transform: translateX(10px);
-        margin: 10px 0;
+        transform: translateX(2px);
+        margin: 2px 0;
     }
 
     .iconContainer:hover {

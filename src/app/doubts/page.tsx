@@ -1,8 +1,10 @@
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import Doubts from './components/Doubts'
 
 function DoubtsPage() {
   return (
-    <div>DoubtsPage</div>
+    <PageLayout title='Doubts and Answers' component={<Doubts/>}></PageLayout>
   )
 }
 

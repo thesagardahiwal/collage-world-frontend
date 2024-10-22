@@ -21,7 +21,7 @@ export function middleware(req: NextRequest) {
   if (protectedRoutes.includes(pathname) && !checkAuth(req)) {
     // Redirect to the login page if not authenticated
     const url = req.nextUrl.clone();
-    url.pathname = '/';
+    url.pathname = '/login';
     return NextResponse.redirect(url);
   }
 

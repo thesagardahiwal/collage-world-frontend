@@ -7,23 +7,18 @@ import UpdateNote from '../components/update-note';
 import ShowNoteDetails from '../components/details-note';
 
 
-
 function page() {
     const {getNote} = useNote();
     const { id } = useParams();
-    if (!(typeof id === 'string')) {
+    if (typeof id !== 'string') {
         return null 
     }
-
-    const [note, setNote] = useState<INote | undefined>(getNote(id));
-
+    const note : INote | undefined = getNote(id);
     if (typeof note === 'undefined') {
         return null;
     };
-
     const [isUpdate, setIsUpdate] = useState<boolean>(false);
     
-
   return (
     <div className='min-h-[100vh] h-full w-full'>
         {!isUpdate &&

@@ -72,7 +72,7 @@ export default function CreateNote() {
   }
 
   return (
-    <div className="w-full min-h-[100vh] h-full flex items-center justify-center">
+    <div className="w-full min-h-[100vh] h-full flex pt-10 justify-center">
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-3">
         <FormField

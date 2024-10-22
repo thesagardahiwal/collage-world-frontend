@@ -1,8 +1,10 @@
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import AnswerList from './components/AnswerList'
 
 function AnswerPage() {
   return (
-    <div className=''>AnswerPage</div>
+    <PageLayout title='Your Anwers' component={<AnswerList/>} ></PageLayout>
   )
 }
 

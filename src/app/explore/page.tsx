@@ -1,10 +1,11 @@
-'use client'
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import ExplorePage from './components/ExplorePage'
 
-function page() {
+function Saves() {
   return (
-    <div>Explore</div>
+    <PageLayout title='Explore' component={<ExplorePage/>}></PageLayout>
   )
 }
 
-export default page
+export default Saves

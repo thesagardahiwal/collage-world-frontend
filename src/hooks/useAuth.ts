@@ -9,7 +9,6 @@ export const useAuth = () => {
   const { user, isAuthenticated, token } = useSelector((state: RootState) => state.auth);
 
   const login = (userData: any) => {
-    console.log(userData)
     dispatch(loginSuccess(userData));
     localStorage.setItem('accessToken', userData.token);
     localStorage.setItem('user', JSON.stringify(userData.user));

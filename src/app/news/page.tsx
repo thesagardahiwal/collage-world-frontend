@@ -1,8 +1,10 @@
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import ShowNews from './components/ShowNews'
 
 function NewsPage() {
   return (
-    <div>NewsPage</div>
+    <PageLayout title='News' component={<ShowNews/>}></PageLayout>
   )
 }
 

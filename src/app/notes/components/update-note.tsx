@@ -38,7 +38,7 @@ const FormSchema = z.object({
     .max(160, {
       message: "Note must not be longer than 160 characters.",
     }),
-    image: z.any()
+    // image: z.any()
 })
 
 export default function UpdateNote({note, setIsUpdate} : Props) {
@@ -50,7 +50,7 @@ export default function UpdateNote({note, setIsUpdate} : Props) {
     defaultValues: {
       title: note.title,
       content: note.content,
-      image: note.attachments?.imageUrls && note.attachments?.imageUrls.length > 0 && note.attachments?.imageUrls[0]
+      // image: note.attachments?.imageUrls && note.attachments?.imageUrls.length > 0 && note.attachments?.imageUrls[0]
     }
   })
 
@@ -79,7 +79,7 @@ export default function UpdateNote({note, setIsUpdate} : Props) {
   }
 
   return (
-    <div className="w-full min-h-[100vh] h-full flex items-center justify-center">
+    <div className="w-full min-h-[100vh] h-full flex pt-10 justify-center">
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-3">
         <FormField
@@ -100,7 +100,7 @@ export default function UpdateNote({note, setIsUpdate} : Props) {
             </FormItem>
           )}
         />
-        <FormField
+        {/* <FormField
           control={form.control}
           name="image"
           render={({ field }) => (
@@ -117,7 +117,7 @@ export default function UpdateNote({note, setIsUpdate} : Props) {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
         <FormField
           control={form.control}
           name="content"

@@ -7,6 +7,10 @@ export interface IResource extends Document {
     examType: string;
     resourceType: string;
     content: string;
+    author: {
+        _id: string;
+        name: string;
+    };
 };
 
 interface initialStateType {

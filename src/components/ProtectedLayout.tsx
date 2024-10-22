@@ -1,50 +1,56 @@
 'use client'
 
-import { useToast } from '@/hooks/use-toast';
-import { useAuth } from '@/hooks/useAuth';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { isTokenExpired } from "@/utils/helper";
 
 const ProtectedLayout = ({ children }: any) => {
   const router = useRouter();
   const { toast } = useToast();
-  const {isAuthenticated, login} = useAuth();
-  // const [isAuth, setIsAuth] = useState(false);
-
-  const getJSONDetails = (data : string | null) => {
-    if (typeof data === 'string') {
-      return JSON.parse(data);
+  const { isAuthenticated, login } = useAuth();
+  const getJSONDetails = (data: string | null) => {
+    if (typeof data === 'string' && data.length > 0) {
+      try {
+        return JSON.parse(data);
+      } catch (error) {
+        return null;
+      }
     }
     return null;
   }
 
   useEffect(() => {
-    // Ensure localStorage is only accessed on the client side
     if (isAuthenticated) {
       return;
     }
+
     const checkAuth = () => {
       if (typeof window !== 'undefined') {
+        const user = localStorage.getItem('user');
         const accessToken = localStorage.getItem('accessToken');
-        return !!accessToken; // Return true if token exists, false otherwise
+        if(user && accessToken && !isTokenExpired(accessToken)) {
+          return true;
+        }
       }
       return false;
     };
-
     if (!checkAuth()) {
-        toast({
-          title: "User is not logged in",
-          description: "Login first to use these features!",
-          variant: "destructive"
-        })
-      router.push('/login'); // Redirect to login if not authenticated
+      toast({
+        title: "User is not logged in",
+        description: "Login first to use these features!",
+        variant: "destructive"
+      });
+      router.push('/login');
     } else {
-      login({user : getJSONDetails(localStorage.getItem('user')), token: localStorage.getItem("accessToken")})
-      // setIsAuth(true); // Set authenticated state
+      const user = getJSONDetails(localStorage.getItem('user'));
+      login({ user, token: localStorage.getItem("accessToken") });
     }
   }, [router, isAuthenticated]);
 
   if (!isAuthenticated) {
+    // router.push('/login');
     return null; // Render nothing or a loader while checking auth
   }
 

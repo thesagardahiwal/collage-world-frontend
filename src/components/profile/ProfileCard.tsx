@@ -4,7 +4,6 @@ import Person4RoundedIcon from '@mui/icons-material/Person4Rounded';
 
 function ProfileCard() {
   const { user } = useAuth();
-  console.log(user);
   return (
     <div className='w-full relative h-full min-h-[140px]'>
       <div className='flex relative items-center justify-center w-full'>

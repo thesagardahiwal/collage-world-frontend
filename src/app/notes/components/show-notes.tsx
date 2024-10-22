@@ -5,13 +5,12 @@ import { useEffect, useTransition } from 'react';
 import { INote } from "../../../redux/slices/noteSlice"
 import { get } from '@/services/useQuery';
 import { useAuth } from '@/hooks/useAuth';
-import { Image } from '@nextui-org/image';
 
 
 import Note from './note';
 
 const NotesList = () => {
-  const { notes, add, getNote, del } = useNote();
+  const { notes, add } = useNote();
   const { token } = useAuth();
   const [isPending, startTransition] = useTransition();
 
@@ -23,9 +22,6 @@ const NotesList = () => {
             add(n);
           }
         })
-
-        console.log(notes)
-
       }
     })
   }

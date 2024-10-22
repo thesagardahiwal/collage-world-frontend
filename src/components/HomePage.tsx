@@ -11,8 +11,10 @@ function HomePage() {
                 <h1 className='text-blue-500 text-3xl font-extrabold'>COLLAGE WORLD</h1>
             </div>
 
-            <div className='h-[200px] w-full bg-gray-300 rounded-md'>
-                <img src="" alt="hero-image" />
+            <div className='h-[200px] overflow-hidden w-full bg-gray-300 rounded-md'>
+                <img 
+                className='object-cover'
+                src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg" alt="hero-image" />
             </div>
         </div>
         <div className="categorySession">

@@ -5,23 +5,28 @@ import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import ClearIcon from '@mui/icons-material/Clear';
-
-import useNote from '@/hooks/useNote';
 import { usePathname, useRouter } from 'next/navigation';
 
 
 function FloatingBar() {
     const router = useRouter();
     const param = usePathname();
-    if (!param.includes('/notes')) {
-        return null;
-    }
+    const pathToLink = new Map();
+    pathToLink.set('/notes', '/notes/create');
+    pathToLink.set('/resources', '/resources/create');
+    // pathToLink.set('/notes', '/notes/create');
+    // pathToLink.set('/notes', '/notes/create');
+    // pathToLink.set('/notes', '/notes/create');
+    // if (!param.includes('/notes')) {
+    //     return null;
+    // }
+    // console.log(param)
 
     const handleNavigation = () => {
-        if (param.includes('/notes/create')) {
-            router.back();
+        if (pathToLink.has(param)) {
+            router.push( pathToLink.get(param));
         } else {
-            router.push('/notes/create')
+            router.back();
         }
     }
     

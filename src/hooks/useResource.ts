@@ -14,7 +14,11 @@ function useResource() {
         dispatch(removeResource(resource));
     }
 
-  return { addRes, resource, delRes };
+    const getRes = (id: string) => {
+        return resource.find(el => el._id === id);
+    }
+
+  return { addRes, getRes, resource, delRes };
 }
 
 export default useResource

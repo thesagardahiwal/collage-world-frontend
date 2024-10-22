@@ -1,8 +1,10 @@
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import SavePage from './components/SavePage'
 
 function Saves() {
   return (
-    <div>Saves</div>
+    <PageLayout title='Saves' component={<SavePage/>}></PageLayout>
   )
 }
 

@@ -1,10 +1,11 @@
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import SettingsPage from './components/SettingsPage'
 
-function page() {
+function Saves() {
   return (
-    
-    <div>Setting</div>
+    <PageLayout title='Settings' component={<SettingsPage/>}></PageLayout>
   )
 }
 
-export default page
+export default Saves

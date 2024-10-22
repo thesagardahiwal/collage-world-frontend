@@ -1,9 +1,11 @@
+import PageLayout from '@/components/layout/PageLayout'
 import React from 'react'
+import LikesPage from './components/LikesPage'
 
-function LikesPage() {
+function Saves() {
   return (
-    <div>LikesPage</div>
+    <PageLayout title='Likes' component={<LikesPage/>}></PageLayout>
   )
 }
 
-export default LikesPage
+export default Saves

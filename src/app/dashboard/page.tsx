@@ -1,15 +1,11 @@
-'use client';
+import PageLayout from '@/components/layout/PageLayout'
+import React from 'react'
+import DashBoardPage from './components/SavePage'
 
-import ProtectedLayout from '@/components/ProtectedLayout';
-
-function Dashboard() {
+function Page() {
   return (
-    <div>
-      <ProtectedLayout>
-        Welcome To Collage Dashboard!
-      </ProtectedLayout>
-    </div>
+    <PageLayout title='DashBoard' component={<DashBoardPage/>}></PageLayout>
   )
 }
 
-export default Dashboard;
+export default Page
