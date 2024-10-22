@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SavePage() {
+function LikesPage() {
   return (
-    <div>SavePage</div>
+    <div>LikesPage</div>
   )
 }
 
-export default SavePage
+export default LikesPage
