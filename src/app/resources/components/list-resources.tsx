@@ -45,7 +45,7 @@ function ResourcesList() {
               <TabsTrigger value="Resources">Resources</TabsTrigger>
           </TabsList>
           <TabsContent value="Resources">
-              <div className='min-h-screen grid sm:grid-cols-2 h-full w-full'>
+              <div className="flex-1 grid grid-cols-3">
                   {resource.length > 0 && resource.map((res: IResource, i: number) => (
                       <div className='my-1' key={i}>
                           <Resource res={res} />

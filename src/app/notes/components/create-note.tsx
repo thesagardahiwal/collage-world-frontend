@@ -54,10 +54,10 @@ export default function CreateNote() {
       if (typeof token === 'string') {
         post('/notes', data, token)
           .then ((data) => {
-            add(data);
             toast({
               title: "Note is added!",
             })
+            add(data);
           })
           .catch(() => {
             toast({

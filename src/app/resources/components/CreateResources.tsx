@@ -69,8 +69,7 @@ export default function CreateResources() {
     startTransition(() => {
         post('/resource/create', data, token)
           .then ((data) => {
-            console.log(data);
-            // addRes(data);
+            addRes(data);
             toast({
               title: "Resource is added!",
             })

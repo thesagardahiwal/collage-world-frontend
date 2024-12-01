@@ -34,15 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               className='w-full relative h-[100vh]'
               >
                 <div className='h-full w-full'>
-                  <div className='hidden sm:block'>
-                    <MobileNavbar />
-                  </div>
                   <div className='min-h-screen overflow-scroll w-full h-full'>
                     {children}
                   </div>
-                  {/* <Suspense fallback={<div>Loading Footer...</div>}> */}
-                    <Footer />
-                  {/* </Suspense> */}
                 </div>
               </ResizablePanel>
 
